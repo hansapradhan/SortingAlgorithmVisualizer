@@ -15,30 +15,73 @@ export default class SortingVisualizer extends React.Component {
         array: [],
       };
     }
+
+
     //HTML for rendering
     render() {
-        const {array} = this.state;
+      const {array} = this.state;
+      var addBootstrapjs = <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+      // Variable for adding Navbar
+      var navbar = this.NavBarHTMLElement();
+
+      //Variable for the rest of the code
+      var restofCode = this.TheCodefortheSortingAnimation(array)
     
-        return (
-          <div className="array-container">
-            {array.map((value, idx) => (
-              <div
-                className="array-bar"
-                key={idx}
-                style={{
-                  backgroundColor: PRIMARY_COLOR,
-                  height: `${value}px`,
-                }}></div>
-            ))}
-            <button onClick={() => this.resetArray()}>Generate New Array</button>
-            <button onClick={() => this.mergeSort()}>Merge Sort</button>
-            <button onClick={() => this.quickSort()}>Quick Sort</button>
-            <button onClick={() => this.heapSort()}>Heap Sort</button>
-            <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
-            <button onClick={() => this.testSortingAlgorithms()}>
-              Test Sorting Algorithms (BROKEN)
-            </button>
-          </div>
-        );
+      return [addBootstrapjs,navbar];
+      
       }
+      
+
+  TheCodefortheSortingAnimation(array) {
+    return <div className="array-container">
+      {array.map((value, idx) => (
+        <div
+          className="array-bar"
+          key={idx}
+          style={{
+            backgroundColor: PRIMARY_COLOR,
+            height: `${value}px`,
+          }}></div>
+      ))}
+      <button onClick={() => this.resetArray()}>Generate New Array</button>
+      <button onClick={() => this.mergeSort()}>Merge Sort</button>
+      <button onClick={() => this.quickSort()}>Quick Sort</button>
+      <button onClick={() => this.heapSort()}>Heap Sort</button>
+      <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
+      <button onClick={() => this.testSortingAlgorithms()}></button>
+
+    </div>;
+  }
+
+  NavBarHTMLElement() {
+    return (
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">SortingVisualizer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="javascript:void(0);" onClick={() => this.mergeSort()}>Merge Sort</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onClick={() => this.quickSort()}>Quick Sort</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);" onClick={() => this.heapSort()}>Heap Sort</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);" onClick={() => this.bubbleSort()}>Bubble Sort</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onClick={() => this.testSortingAlgorithms()}>
+              Test Sorting Algorithms (BROKEN)
+            </a>
+          </li>
+        </ul>
+        <button class="button-37  btn btn-outline-success float-right "  onClick={() => this.resetArray()}>Generate New Array</button>
+      </div>
+    </nav>);
+  }
 }
