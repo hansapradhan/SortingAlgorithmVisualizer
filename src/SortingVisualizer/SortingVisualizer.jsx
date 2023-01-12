@@ -56,31 +56,35 @@ export default class SortingVisualizer extends React.Component {
   NavBarHTMLElement() {
     return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">SortingVisualizer</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="javascript:void(0);" onClick={() => this.mergeSort()}>Merge Sort</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);" onClick={() => this.quickSort()}>Quick Sort</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0);" onClick={() => this.heapSort()}>Heap Sort</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0);" onClick={() => this.bubbleSort()}>Bubble Sort</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);" onClick={() => this.testSortingAlgorithms()}>
-              Test Sorting Algorithms (BROKEN)
-            </a>
-          </li>
-        </ul>
-        <button class="button-37  btn btn-outline-success float-right "  onClick={() => this.resetArray()}>Generate New Array</button>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SortingAlgorithmVisualizer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+             <a class="nav-link" href="javascript:void(0);" onClick={() => this.mergeSort()}>Merge Sort</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);" onClick={() => this.quickSort()}>Quick Sort</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);" onClick={() => this.heapSort()}>Heap Sort</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);" onClick={() => this.bubbleSort()}>Bubble Sort</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);" onClick={() => this.testSortingAlgorithms()}>
+                Test Sorting Algorithms (BROKEN)
+              </a>
+            </li>
+            <li class="nav-item" >
+              <button class="button-37  btn btn-outline-success pull-right" onClick={() => this.resetArray()}>Generate New Array</button>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>);
   }
